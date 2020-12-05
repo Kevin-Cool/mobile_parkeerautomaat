@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.parkeerautomatenv4.ui.parkeerautomaat_lijst.MainFragment"
+        android:label="My boardgame app"
+        tools:layout="@layout/main_activity">
+        <action
+            android:id="@+id/action_homeFragment_to_detailfragment"
+            app:destination="@id/detailfragment"
+            app:popUpTo="@id/detailfragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailfragment"
+        android:name="com.example.parkeerautomatenv4.ui.parkeerautomaat_detail.detailFragment"
+        android:label="boardgame details">
+        <argument
+            android:name="parkeerautomaat"
+            app:argType="com.example.parkeerautomatenv4.api.parkeerautomaat" />
+    </fragment>
+</navigation>

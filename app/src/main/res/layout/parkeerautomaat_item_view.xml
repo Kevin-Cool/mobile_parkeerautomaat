@@ -1,0 +1,139 @@
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="Parkeerautomaat"
+            type="com.example.parkeerautomatenv4.api.Parkeerautomaat" />
+
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/parkeerautomaat_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:layout_marginBottom="6dp"
+        android:onClick="@{clickListener}"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="@dimen/cardview_default_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:src="@drawable/lable_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/locatieomschrijving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Parkeerautomaat.fields.locatieomschrijving}"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:paddingTop="11dp"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="#00ffffff"/>
+
+            <TextView
+                android:id="@+id/parkeertariefzone_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zone"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                android:paddingTop="11dp"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/locatieomschrijving"
+                app:layout_constraintEnd_toEndOf="@+id/betaalmodus_label"
+                android:background="#00ffffff"/>
+            <TextView
+                android:id="@+id/betaalmodus_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cash"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingTop="11dp"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/parkeertariefzone_label"
+                app:layout_constraintEnd_toEndOf="@+id/categorie_label"
+                android:background="#00ffffff"/>
+            <TextView
+                android:id="@+id/categorie_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categorie"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingTop="11dp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/betaalmodus_label"
+                android:background="#00ffffff"/>
+
+
+
+            <TextView
+                android:id="@+id/parkeertariefzone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Parkeerautomaat.fields.parkeertariefzone}"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingTop="11dp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/parkeertariefzone_label"
+                app:layout_constraintTop_toBottomOf="@+id/locatieomschrijving"
+                android:background="#00ffffff"/>
+            <TextView
+                android:id="@+id/betaalmodus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Parkeerautomaat.fields.betaalmodus}"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingTop="11dp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/betaalmodus_label"
+                app:layout_constraintTop_toBottomOf="@+id/parkeertariefzone_label"
+                android:background="#00ffffff"/>
+
+            <TextView
+                android:id="@+id/categorie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Parkeerautomaat.fields.categorie}"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingTop="11dp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/categorie_label"
+                app:layout_constraintTop_toBottomOf="@+id/betaalmodus_label"
+                android:background="#00ffffff"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

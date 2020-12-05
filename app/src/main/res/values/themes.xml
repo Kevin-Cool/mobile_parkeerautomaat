@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Parkeerautomatenv4" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#C1436D</item>
+        <item name="colorPrimaryVariant">#271739</item>
+        <item name="colorOnPrimary">#0F0C24</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#465EA0</item>
+        <item name="colorSecondaryVariant">#1E1739</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">#0F0C24</item>
+    </style>
+</resources>
