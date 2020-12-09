@@ -1,7 +1,7 @@
 package com.example.parkeerautomatenv4
 
-import com.example.parkeerautomatenv4.api.Parkeerautomaat
+import com.example.parkeerautomatenv4.domain.Parkeerautomaat
 
 interface parkeerautomaat_clicklistener {
-    fun onGameClicklistener(Parkeerautomaat: Parkeerautomaat)
+    fun onParkeerautomaatClicklistener(Parkeerautomaat: Parkeerautomaat)
 }

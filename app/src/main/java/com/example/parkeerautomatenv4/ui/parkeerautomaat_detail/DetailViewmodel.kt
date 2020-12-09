@@ -1,7 +1,7 @@
 package com.example.parkeerautomatenv4.ui.parkeerautomaat_detail
 
 import androidx.lifecycle.ViewModel
-import com.example.parkeerautomatenv4.api.Parkeerautomaat
+import com.example.parkeerautomatenv4.domain.Parkeerautomaat
 
 class DetailViewmodel() : ViewModel() {
     lateinit var Parkeerautomaat : Parkeerautomaat
