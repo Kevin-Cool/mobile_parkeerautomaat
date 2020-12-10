@@ -1,14 +1,23 @@
 package com.example.parkeerautomatenv4.domain
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
+@Entity(tableName = "fields")
 data class Parkeerautomaatfields(
-        val betaalmodus: String,
-        val categorie: String,
-        val bewonerszone: String,
-        val status: String,
-        val locatieomschrijving: String,
-        val parkeertariefzone: String
+        @ColumnInfo(name="betaalmodus")
+        val betaalmodus: String?,
+        @ColumnInfo(name="categorie")
+        val categorie: String?,
+        @ColumnInfo(name="bewonerszone")
+        val bewonerszone: String?,
+        @ColumnInfo(name="status")
+        val status: String?,
+        @ColumnInfo(name="locatieomschrijving")
+        val locatieomschrijving: String?,
+        @ColumnInfo(name="parkeertariefzone")
+        val parkeertariefzone: String?
 ): Parcelable

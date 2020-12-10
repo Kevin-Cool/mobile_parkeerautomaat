@@ -15,7 +15,7 @@ import com.example.parkeerautomatenv4.databinding.FragmentParkeerautomaatDetailB
 import com.example.parkeerautomatenv4.utils.ParkeerautomaatAdaptor
 
 class DetailFragment  : Fragment() {
-    private val argument: DetailFragmentArgs by navArgs()
+    val arguments: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -28,7 +28,7 @@ class DetailFragment  : Fragment() {
         viewModel.parkeerautomaat.observe(viewLifecycleOwner,Observer {
             binding.parkeerautomaat = it
         })
-        viewModel.updateParkeerautomaat(argument.parkeerautomaat)
+        viewModel.updateParkeerautomaat(arguments.Parkeerautomaat)
 
         return binding.root
     }

@@ -5,23 +5,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/parkeerautomaatLijstFragment">
+
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/parkeerautomaatLijstFragment"
         android:name="com.example.parkeerautomatenv4.ui.parkeerautomaat_lijst.ParkeerautomaatLijstFragment"
-        android:label="My boardgame app"
-        tools:layout="@layout/activity_main">
+        android:label="ParkeerautomaatLijstFragment" >
         <action
-            android:id="@+id/action_homeFragment_to_detailfragment"
-            app:destination="@id/detailfragment" />
+            android:id="@+id/action_parkeerautomaatLijstFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detailfragment"
+        android:id="@+id/detailFragment"
         android:name="com.example.parkeerautomatenv4.ui.parkeerautomaat_detail.DetailFragment"
-        android:label="boardgame details">
+        android:label="DetailFragment" >
         <argument
-            android:name="parkeerautomaat"
-            app:argType="com.example.parkeerautomatenv4.api.parkeerautomaat" />
+            android:name="Parkeerautomaat"
+            app:argType="com.example.parkeerautomatenv4.domain.Parkeerautomaat" />
     </fragment>
 </navigation>

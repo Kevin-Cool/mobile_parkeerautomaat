@@ -1,6 +1,7 @@
 package com.example.parkeerautomatenv4.ui.parkeerautomaat_lijst
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,7 +21,9 @@ class ParkeerautomaatLijstViewModel(private val apiService: GhentApiService) : V
         getParkeerautomaatFromApiService()
     }
 
+
    private fun getParkeerautomaatFromApiService(){
+
        viewModelScope.launch {
            try {
                val response = apiService.getParkeerautomaten()
