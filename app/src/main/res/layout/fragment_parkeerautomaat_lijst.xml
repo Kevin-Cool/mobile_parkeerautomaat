@@ -18,17 +18,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/parkeerautomaat_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:setAdaptor="@{adaptor}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_margin="10dp"
+            app:setAdaptor="@{adaptor}" />
 
     </LinearLayout>
 </layout>

@@ -3,6 +3,7 @@ package com.example.parkeerautomatenv4.domain
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatEntity
 import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
@@ -10,10 +11,14 @@ import java.io.Serializable
 @Entity(tableName = "records")
 data class Parkeerautomaat(
         @ColumnInfo(name="recordid")
-    val recordid: String?,
+    val recordid: String,
         @ColumnInfo(name="fields")
-    val fields: Parkeerautomaatfields?,
+    val fields: Parkeerautomaatfields,
         @ColumnInfo(name="geometry")
-    val geometry: Geometry?
-): Parcelable
+    val geometry: Geometry
+): Parcelable{
+    fun toDatabaseModel(): ParkeerautomaatEntity{
+        return ParkeerautomaatEntity(recordid)
+    }
+}
 

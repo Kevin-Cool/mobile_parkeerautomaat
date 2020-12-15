@@ -1,9 +1,11 @@
 package com.example.parkeerautomatenv4.data.remote
 
+import com.bumptech.glide.load.engine.Resource
 import com.example.parkeerautomatenv4.domain.GetParkeerautomaatApiResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -22,7 +24,7 @@ private val retrofit = Retrofit.Builder()
 
 interface GhentApiService{
     @GET("api/records/1.0/search/?dataset=locaties-parkeerautomaten-gent&q=&rows=-1")
-    suspend fun getParkeerautomaten(): GetParkeerautomaatApiResponse
+    suspend fun getParkeerautomaten(): Response<GetParkeerautomaatApiResponse>
 }
 
 object GhentApi {

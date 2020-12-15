@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.example.parkeerautomatenv4.ui.parkeerautomaat_lijst.ParkeerautomaatLijstFragment
 
@@ -15,8 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fragment = ParkeerautomaatLijstFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.fl_wrapper,fragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
 
 
     }

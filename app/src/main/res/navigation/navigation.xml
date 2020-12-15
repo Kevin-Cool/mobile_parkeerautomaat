@@ -21,7 +21,7 @@
         android:name="com.example.parkeerautomatenv4.ui.parkeerautomaat_detail.DetailFragment"
         android:label="DetailFragment" >
         <argument
-            android:name="Parkeerautomaat"
-            app:argType="com.example.parkeerautomatenv4.domain.Parkeerautomaat" />
+            android:name="ParkeerautomaatID"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -6,11 +6,11 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.parkeerautomatenv4.ui.parkeerautomaat_detail.DetailViewmodel" />
+            type="com.example.parkeerautomatenv4.ui.parkeerautomaat_detail.DetailViewModel" />
 
         <variable
             name="Parkeerautomaat"
-            type="com.example.parkeerautomatenv4.domain.Parkeerautomaat" />
+            type="com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFieldsAndGeometry" />
 
     </data>
 

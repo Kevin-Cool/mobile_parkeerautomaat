@@ -8,7 +8,7 @@
             type="android.view.View.OnClickListener" />
         <variable
             name="Parkeerautomaat"
-            type="com.example.parkeerautomatenv4.domain.Parkeerautomaat" />
+            type="com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFieldsAndGeometry" />
 
     </data>
 
