@@ -18,6 +18,6 @@ interface ParkeerautomaatDao {
     fun getParkeerautomaatById(id: String) : LiveData<ParkeerautomaatAndFieldsAndGeometry>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(List: List<ParkeerautomaatEntity>)
+    fun insertAll(list: List<ParkeerautomaatEntity>)
 
 }

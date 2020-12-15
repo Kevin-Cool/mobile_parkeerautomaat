@@ -15,6 +15,7 @@ class ParkeerautomaatLocalDataSource (private val parkeerautomaatDao: Parkeeraut
     fun getParkeerautomaatById(id: String) = parkeerautomaatDao.getParkeerautomaatById(id)
 
     fun saveParkeerautomaat(list: List<Parkeerautomaat>){
+
         val parkeerautomaatList = ArrayList<ParkeerautomaatEntity>()
         list.forEach { parkeerautomaat -> parkeerautomaatList.add(parkeerautomaat.toDatabaseModel()) }
         parkeerautomaatDao.insertAll(parkeerautomaatList)

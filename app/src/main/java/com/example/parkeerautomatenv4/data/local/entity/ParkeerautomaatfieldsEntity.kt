@@ -6,7 +6,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "parkeerautomaatFields", foreignKeys = arrayOf(
+@Entity(tableName = "fields", foreignKeys = arrayOf(
         ForeignKey(
                 entity = ParkeerautomaatEntity::class,
                 parentColumns = arrayOf("recordid"),
