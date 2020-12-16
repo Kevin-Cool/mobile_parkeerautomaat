@@ -23,7 +23,7 @@ private val retrofit = Retrofit.Builder()
         .build()
 
 interface GhentApiService{
-    @GET("api/records/1.0/search/?dataset=locaties-parkeerautomaten-gent&q=&rows=-1")
+    @GET("api/records/1.0/search/?dataset=locaties-parkeerautomaten-gent&q=&rows=10")
     suspend fun getParkeerautomaten(): Response<GetParkeerautomaatApiResponse>
 }
 

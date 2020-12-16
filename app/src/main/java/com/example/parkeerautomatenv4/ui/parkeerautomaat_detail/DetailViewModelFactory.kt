@@ -8,8 +8,8 @@ import java.lang.IllegalArgumentException
 
 class DetailViewModelFactory (private val repository: ParkeerautomaatRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(DetailViewModelFactory::class.java)){
-            return DetailViewModelFactory(repository) as T
+        if (modelClass.isAssignableFrom(DetailViewModel::class.java)){
+            return DetailViewModel(repository) as T
         }
         throw IllegalArgumentException("Unkown Viewmodel class")
     }

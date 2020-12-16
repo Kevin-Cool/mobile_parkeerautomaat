@@ -10,7 +10,7 @@ class RepositoryUtils {
     companion object{
         fun createParkeerautomaatRepository(context: Context): ParkeerautomaatRepository{
             val database = AppDatabase.getDatabase(context)
-            val localDataSource = ParkeerautomaatLocalDataSource(database.parkeerautomaatDao(),database.parkeerautomaatfieldsDao(),database.geometry())
+            val localDataSource = ParkeerautomaatLocalDataSource(database.parkeerautomaatDao(),database.parkeerautomaatfieldsDao())
             val remoteDataSource = ParkeerautomaatRemoteDataSource(GhentApi.apiService)
 
             return ParkeerautomaatRepository(localDataSource,remoteDataSource)

@@ -10,7 +10,7 @@
 
         <variable
             name="Parkeerautomaat"
-            type="com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFieldsAndGeometry" />
+            type="com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFields" />
 
     </data>
 

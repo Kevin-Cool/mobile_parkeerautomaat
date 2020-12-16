@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import androidx.navigation.fragment.navArgs
+import com.example.parkeerautomatenv4.data.repos.RepositoryUtils
 import com.example.parkeerautomatenv4.databinding.FragmentParkeerautomaatDetailBinding
 
 class DetailFragment  : Fragment() {
@@ -20,12 +21,16 @@ class DetailFragment  : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentParkeerautomaatDetailBinding.inflate(inflater, container, false)
-        val viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        val factory = DetailViewModelFactory(RepositoryUtils.createParkeerautomaatRepository(requireContext()))
+        val viewModel = ViewModelProvider(this,factory).get(DetailViewModel::class.java)
+
+
+        viewModel.updateParkeerautomaat(arguments.ParkeerautomaatID)
 
         viewModel.parkeerautomaat.observe(viewLifecycleOwner,Observer {
             binding.parkeerautomaat = it
         })
-        viewModel.updateParkeerautomaat(arguments.ParkeerautomaatID)
+
 
         return binding.root
     }

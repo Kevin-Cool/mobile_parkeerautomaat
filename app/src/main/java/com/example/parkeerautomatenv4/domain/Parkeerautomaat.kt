@@ -13,9 +13,7 @@ data class Parkeerautomaat(
         @ColumnInfo(name="recordid")
     val recordid: String,
         @ColumnInfo(name="fields")
-    val fields: Parkeerautomaatfields,
-        @ColumnInfo(name="geometry")
-    val geometry: Geometry
+    val fields: Parkeerautomaatfields
 ): Parcelable{
     fun toDatabaseModel(): ParkeerautomaatEntity{
         return ParkeerautomaatEntity(recordid)
