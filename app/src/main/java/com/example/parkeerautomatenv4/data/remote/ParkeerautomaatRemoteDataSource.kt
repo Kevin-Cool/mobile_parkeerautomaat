@@ -5,5 +5,5 @@ import com.example.parkeerautomatenv4.domain.GetParkeerautomaatApiResponse
 
 class ParkeerautomaatRemoteDataSource(val apiService: GhentApiService): BaseDataSource() {
 
-    suspend fun  getparkeerautomaten() = getResult { apiService.getParkeerautomaten() }
+    suspend fun  getParkeerautomaten() = getResult { apiService.getParkeerautomaten() }
 }

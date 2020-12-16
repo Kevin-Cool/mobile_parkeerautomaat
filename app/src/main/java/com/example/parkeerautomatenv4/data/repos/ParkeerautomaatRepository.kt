@@ -15,7 +15,7 @@ class ParkeerautomaatRepository(
 
     fun getParkeerautomaten() = performGetOperation(
         databaseQuery = {parkeerautomaatLocalDataSource.getParkeerautomaten()},
-        networkCall =  {parkeerautomaatRemoteDataSource.getparkeerautomaten()},
+        networkCall =  {parkeerautomaatRemoteDataSource.getParkeerautomaten()},
         saveCallResult = {parkeerautomaatLocalDataSource.saveParkeerautomaat(it.records)}
     )
 }

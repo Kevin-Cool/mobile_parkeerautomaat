@@ -19,4 +19,5 @@ interface ParkeerautomaatDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(list: List<ParkeerautomaatEntity>)
 
+
 }
