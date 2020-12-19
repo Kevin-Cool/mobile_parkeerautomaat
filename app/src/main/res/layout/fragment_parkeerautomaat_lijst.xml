@@ -12,7 +12,8 @@
     <!-- Start of the visible fragment layout using ConstraintLayout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        style="@style/text">
 
 
         <androidx.recyclerview.widget.RecyclerView

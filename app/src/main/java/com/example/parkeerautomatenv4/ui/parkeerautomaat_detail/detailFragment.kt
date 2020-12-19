@@ -49,19 +49,8 @@ class DetailFragment  : Fragment() {
 
             myClipboard.setPrimaryClip(myClip)
 
-            //Toast.makeText(activity , "Text copied to clipboard:"+myClipboard.primaryClip.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(activity , "Copied: "+binding.parkeerautomaat?.fields?.locatieomschrijving, Toast.LENGTH_LONG).show()
 
-            val toast: Toast = Toast.makeText(context, "Copied: "+binding.parkeerautomaat?.fields?.locatieomschrijving, Toast.LENGTH_SHORT)
-            val view = toast.view
-
-            //Gets the actual oval background of the Toast then sets the colour filter
-            view?.background?.setColorFilter(ContextCompat.getColor(requireContext(),R.color.color_1), PorterDuff.Mode.SRC_IN)
-
-            //Gets the TextView from the Toast so it can be editted
-            val text = view?.findViewById<TextView>(message)
-            text?.setTextColor(Color.WHITE)
-
-            toast.show()
         }
 
         binding.favButton.setOnClickListener {

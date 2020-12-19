@@ -14,34 +14,36 @@
 
     </data>
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/text">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#0F0C24">
 
             <TextView
                 android:id="@+id/locatieomschrijving_label"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:layout_marginEnd="175dp"
                 android:text="@string/locatie"
                 android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/locatieomschrijving"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/locatieomschrijving"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -54,6 +56,7 @@
 
             <TextView
                 android:id="@+id/betaalmodus_label"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -64,6 +67,7 @@
 
             <TextView
                 android:id="@+id/betaalmodus"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -74,6 +78,7 @@
 
             <TextView
                 android:id="@+id/categorie_label"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -84,6 +89,7 @@
 
             <TextView
                 android:id="@+id/categorie"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -94,6 +100,7 @@
 
             <TextView
                 android:id="@+id/bewonerszone_label"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -104,6 +111,7 @@
 
             <TextView
                 android:id="@+id/bewonerszone"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -114,6 +122,7 @@
 
             <TextView
                 android:id="@+id/parkeertariefzone_label"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -124,6 +133,7 @@
 
             <TextView
                 android:id="@+id/parkeertariefzone"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
