@@ -27,98 +27,132 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#0F0C24">
 
-        <TextView
-            android:id="@+id/locatieomschrijving_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/locatie"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/locatieomschrijving_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/locatie"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/locatieomschrijving"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/locatieomschrijving"
-            android:text="@{Parkeerautomaat.fields.locatieomschrijving}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="10dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/locatieomschrijving_label"/>
+            <TextView
+                android:id="@+id/locatieomschrijving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{Parkeerautomaat.fields.locatieomschrijving}"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/locatieomschrijving_label"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/betaalmodus_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/betaalmodus"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/locatieomschrijving_label"
-            app:layout_constraintEnd_toEndOf="@+id/locatieomschrijving_label"/>
+            <TextView
+                android:id="@+id/betaalmodus_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/betaalmodus"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/locatieomschrijving_label"
+                app:layout_constraintTop_toBottomOf="@+id/locatieomschrijving_label" />
 
-        <TextView
-            android:id="@+id/betaalmodus"
-            android:text="@{Parkeerautomaat.fields.betaalmodus}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/locatieomschrijving"
-            app:layout_constraintStart_toStartOf="@+id/locatieomschrijving"/>
+            <TextView
+                android:id="@+id/betaalmodus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{Parkeerautomaat.fields.betaalmodus}"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/locatieomschrijving"
+                app:layout_constraintTop_toBottomOf="@+id/locatieomschrijving" />
 
-        <TextView
-            android:id="@+id/categorie_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/categorie"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/betaalmodus_label"
-            app:layout_constraintEnd_toEndOf="@+id/betaalmodus_label"/>
+            <TextView
+                android:id="@+id/categorie_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/categorie"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/betaalmodus_label"
+                app:layout_constraintTop_toBottomOf="@+id/betaalmodus_label" />
 
-        <TextView
-            android:id="@+id/categorie"
-            android:text="@{Parkeerautomaat.fields.categorie}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/betaalmodus"
-            app:layout_constraintStart_toStartOf="@+id/betaalmodus"/>
+            <TextView
+                android:id="@+id/categorie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{Parkeerautomaat.fields.categorie}"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/betaalmodus"
+                app:layout_constraintTop_toBottomOf="@+id/betaalmodus" />
 
-        <TextView
-            android:id="@+id/bewonerszone_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/bewonerszone"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/categorie_label"
-            app:layout_constraintEnd_toEndOf="@+id/categorie_label"/>
+            <TextView
+                android:id="@+id/bewonerszone_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/bewonerszone"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/categorie_label"
+                app:layout_constraintTop_toBottomOf="@+id/categorie_label" />
 
-        <TextView
-            android:id="@+id/bewonerszone"
-            android:text="@{Parkeerautomaat.fields.bewonerszone}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/categorie"
-            app:layout_constraintStart_toStartOf="@+id/categorie"/>
+            <TextView
+                android:id="@+id/bewonerszone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{Parkeerautomaat.fields.bewonerszone}"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/categorie"
+                app:layout_constraintTop_toBottomOf="@+id/categorie" />
 
-        <TextView
-            android:id="@+id/parkeertariefzone_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/parkeertariefzone"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/bewonerszone_label"
-            app:layout_constraintEnd_toEndOf="@+id/bewonerszone_label"/>
+            <TextView
+                android:id="@+id/parkeertariefzone_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/parkeertariefzone"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/bewonerszone_label"
+                app:layout_constraintTop_toBottomOf="@+id/bewonerszone_label" />
 
-        <TextView
-            android:id="@+id/parkeertariefzone"
-            android:text="@{Parkeerautomaat.fields.parkeertariefzone}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/bewonerszone"
-            app:layout_constraintStart_toStartOf="@+id/bewonerszone"/>
+            <TextView
+                android:id="@+id/parkeertariefzone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{Parkeerautomaat.fields.parkeertariefzone}"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/bewonerszone"
+                app:layout_constraintTop_toBottomOf="@+id/bewonerszone" />
 
+            <Button
+                android:id="@+id/coppyButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Coppy addres"
+                android:textColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/parkeertariefzone_label" />
+
+            <Button
+                android:id="@+id/favButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="favorite"
+                android:textColor="#ffffff"
+                app:icon="@android:drawable/btn_star"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/coppyButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

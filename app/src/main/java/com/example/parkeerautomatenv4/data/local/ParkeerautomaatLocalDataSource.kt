@@ -5,6 +5,7 @@ import com.example.parkeerautomatenv4.data.local.dao.ParkeerautomaatfieldsDao
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatEntity
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEntity
 import com.example.parkeerautomatenv4.domain.Parkeerautomaat
+import java.lang.Exception
 
 class ParkeerautomaatLocalDataSource (private val parkeerautomaatDao: ParkeerautomaatDao, private val parkeerautomaatfieldsDao: ParkeerautomaatfieldsDao) {
 
@@ -13,6 +14,11 @@ class ParkeerautomaatLocalDataSource (private val parkeerautomaatDao: Parkeeraut
     fun getParkeerautomaatById(id: String) = parkeerautomaatDao.getParkeerautomaatById(id)
 
     fun saveParkeerautomaat(list: List<Parkeerautomaat>){
+        /*try {
+            clearLocalParkkerautomaten()
+        }catch (e: Exception){
+            e.printStackTrace();
+        }*/
 
         val parkeerautomaatList = ArrayList<ParkeerautomaatEntity>()
         list.forEach { parkeerautomaat -> parkeerautomaatList.add(parkeerautomaat.toDatabaseModel()) }
@@ -23,6 +29,10 @@ class ParkeerautomaatLocalDataSource (private val parkeerautomaatDao: Parkeeraut
         parkeerautomaatfieldsDao.insertAll(fieldsList)
 
 
+    }
+    fun clearLocalParkkerautomaten(){
+        parkeerautomaatDao.clear()
+        parkeerautomaatfieldsDao.clear()
     }
 
 }

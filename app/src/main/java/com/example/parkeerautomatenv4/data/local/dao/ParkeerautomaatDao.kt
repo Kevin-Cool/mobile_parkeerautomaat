@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFields
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatEntity
+import retrofit2.http.DELETE
 
 @Dao
 interface ParkeerautomaatDao {
@@ -19,5 +20,6 @@ interface ParkeerautomaatDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(list: List<ParkeerautomaatEntity>)
 
-
+    @Query("DELETE FROM parkeerautomaat")
+    fun clear()
 }

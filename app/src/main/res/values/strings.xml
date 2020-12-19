@@ -7,4 +7,5 @@
     <string name="locatie">locatie:</string>
     <string name="zone">zone:</string>
     <string name="cash">cash:</string>
+    <string name="loading">Loading...</string>
 </resources>

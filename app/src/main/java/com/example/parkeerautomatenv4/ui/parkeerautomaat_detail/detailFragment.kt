@@ -1,16 +1,27 @@
 package com.example.parkeerautomatenv4.ui.parkeerautomaat_detail
 
+import android.R.id.message
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-
 import androidx.navigation.fragment.navArgs
+import com.airbnb.lottie.animation.content.Content
+import com.example.parkeerautomatenv4.R
 import com.example.parkeerautomatenv4.data.repos.RepositoryUtils
 import com.example.parkeerautomatenv4.databinding.FragmentParkeerautomaatDetailBinding
+
 
 class DetailFragment  : Fragment() {
     val arguments: DetailFragmentArgs by navArgs()
@@ -29,10 +40,36 @@ class DetailFragment  : Fragment() {
 
         viewModel.parkeerautomaat.observe(viewLifecycleOwner,Observer {
             binding.parkeerautomaat = it
+
         })
 
+        binding.coppyButton.setOnClickListener {
+            val myClipboard: ClipboardManager = requireActivity().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val myClip: ClipData = ClipData.newPlainText("text",binding.parkeerautomaat?.fields?.locatieomschrijving)
+
+            myClipboard.setPrimaryClip(myClip)
+
+            //Toast.makeText(activity , "Text copied to clipboard:"+myClipboard.primaryClip.toString(), Toast.LENGTH_LONG).show()
+
+            val toast: Toast = Toast.makeText(context, "Copied: "+binding.parkeerautomaat?.fields?.locatieomschrijving, Toast.LENGTH_SHORT)
+            val view = toast.view
+
+            //Gets the actual oval background of the Toast then sets the colour filter
+            view?.background?.setColorFilter(ContextCompat.getColor(requireContext(),R.color.color_1), PorterDuff.Mode.SRC_IN)
+
+            //Gets the TextView from the Toast so it can be editted
+            val text = view?.findViewById<TextView>(message)
+            text?.setTextColor(Color.WHITE)
+
+            toast.show()
+        }
+
+        binding.favButton.setOnClickListener {
+            Toast.makeText(activity , "Favorite", Toast.LENGTH_LONG).show()
+        }
 
         return binding.root
     }
+
 
 }
