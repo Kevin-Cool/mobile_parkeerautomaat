@@ -4,16 +4,19 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.parkeerautomatenv4.data.local.dao.FavoriteDao
 import com.example.parkeerautomatenv4.data.local.dao.ParkeerautomaatDao
 import com.example.parkeerautomatenv4.data.local.dao.ParkeerautomaatfieldsDao
+import com.example.parkeerautomatenv4.data.local.entity.FavoriteEntity
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatEntity
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEntity
 
-@Database(entities = [ParkeerautomaatEntity::class, ParkeerautomaatfieldsEntity::class],version = 2,exportSchema = false)
+@Database(entities = [ParkeerautomaatEntity::class, ParkeerautomaatfieldsEntity::class, FavoriteEntity::class],version = 7,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun parkeerautomaatDao():ParkeerautomaatDao
     abstract fun parkeerautomaatfieldsDao():ParkeerautomaatfieldsDao
+    abstract fun favoriteDao():FavoriteDao
 
     companion object{
         @Volatile

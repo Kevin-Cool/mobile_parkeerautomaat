@@ -3,8 +3,8 @@ package com.example.parkeerautomatenv4.data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity( tableName = "records")
-class ParkeerautomaatEntity (
+@Entity( tableName = "Favorites")
+class FavoriteEntity (
         @PrimaryKey
-        val recordid: String= ""
+        val recordid: String =""
 )

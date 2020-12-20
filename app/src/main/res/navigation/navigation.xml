@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/parkeerautomaatLijstFragment">
+    app:startDestination="@id/parkeerautomaatFavoritesFragment">
 
 
     <fragment
@@ -23,5 +23,16 @@
         <argument
             android:name="ParkeerautomaatID"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/parkeerautomaatFavoritesFragment"
+        android:name="com.example.parkeerautomatenv4.ui.parkeerautomaat_favorites.ParkeerautomaatFavoritesFragment"
+        android:label="ParkeerautomaatFavoritesFragment" >
+        <action
+            android:id="@+id/action_parkeerautomaatFavoritesFragment_to_parkeerautomaatLijstFragment"
+            app:destination="@id/parkeerautomaatLijstFragment" />
+        <action
+            android:id="@+id/action_parkeerautomaatFavoritesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

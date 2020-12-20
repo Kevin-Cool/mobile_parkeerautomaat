@@ -4,6 +4,7 @@ import android.R.id.message
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context.CLIPBOARD_SERVICE
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -32,16 +33,22 @@ class DetailFragment  : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentParkeerautomaatDetailBinding.inflate(inflater, container, false)
-        val factory = DetailViewModelFactory(RepositoryUtils.createParkeerautomaatRepository(requireContext()))
+        val factory = DetailViewModelFactory(requireNotNull(activity),RepositoryUtils.createParkeerautomaatRepository(requireContext()))
         val viewModel = ViewModelProvider(this,factory).get(DetailViewModel::class.java)
 
 
         viewModel.updateParkeerautomaat(arguments.ParkeerautomaatID)
+        viewModel.updateFavorit(arguments.ParkeerautomaatID)
 
         viewModel.parkeerautomaat.observe(viewLifecycleOwner,Observer {
             binding.parkeerautomaat = it
-
         })
+
+        viewModel.isFavorit.observe(viewLifecycleOwner,Observer {
+            //Toast.makeText(activity , "Favorit status changed", Toast.LENGTH_LONG).show()
+        })
+
+
 
         binding.coppyButton.setOnClickListener {
             val myClipboard: ClipboardManager = requireActivity().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
@@ -52,10 +59,10 @@ class DetailFragment  : Fragment() {
             Toast.makeText(activity , "Copied: "+binding.parkeerautomaat?.fields?.locatieomschrijving, Toast.LENGTH_LONG).show()
 
         }
-
         binding.favButton.setOnClickListener {
-            Toast.makeText(activity , "Favorite", Toast.LENGTH_LONG).show()
+            viewModel.update()
         }
+
 
         return binding.root
     }

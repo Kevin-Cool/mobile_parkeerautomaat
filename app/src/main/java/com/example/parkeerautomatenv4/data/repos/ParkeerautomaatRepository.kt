@@ -17,24 +17,17 @@ class ParkeerautomaatRepository(
 
 
 
-    fun getParkeerautomaten(): LiveData<Resource<List<ParkeerautomaatAndFields>>> {/*
-        try {
-            return performGetOperation(
-                    databaseQuery = { parkeerautomaatLocalDataSource.getParkeerautomaten() },
-                    networkCall = { parkeerautomaatRemoteDataSource.getParkeerautomaten() },
-                    saveCallResult = {parkeerautomaatLocalDataSource.saveParkeerautomaat(it.records) }
-            )
-        }
-        catch(e:Exception){
-            return performGetOperation(
-                    databaseQuery = { parkeerautomaatLocalDataSource.getParkeerautomaten() },
-                    networkCall = { parkeerautomaatRemoteDataSource.getParkeerautomaten() },
-                    saveCallResult = { }
-            )
-        }*/
-        return performGetOperation(
+    fun getParkeerautomaten() = performGetOperation(
+
                 databaseQuery = { parkeerautomaatLocalDataSource.getParkeerautomaten() },
                 networkCall = { parkeerautomaatRemoteDataSource.getParkeerautomaten() },
-                saveCallResult = {parkeerautomaatLocalDataSource.saveParkeerautomaat(it.records) })
-    }
+                saveCallResult = {parkeerautomaatLocalDataSource.saveParkeerautomaat(it.records)}
+    )
+
+
+    fun getFavorit(id: String) = parkeerautomaatLocalDataSource.getFavorite(id)
+
+    fun addFavorit(id: String) = parkeerautomaatLocalDataSource.addFavorite(id)
+
+    fun deleteFavorit(id: String) = parkeerautomaatLocalDataSource.deleteFavorite(id)
 }

@@ -10,16 +10,16 @@ import retrofit2.http.DELETE
 interface ParkeerautomaatDao {
 
     @Transaction
-    @Query("select * from parkeerautomaat")
+    @Query("select * from records")
     fun getAllParkeerautomaten() : LiveData<List<ParkeerautomaatAndFields>>
 
     @Transaction
-    @Query("select * from parkeerautomaat where recordid=:id")
+    @Query("select * from records where recordid=:id")
     fun getParkeerautomaatById(id: String) : LiveData<ParkeerautomaatAndFields>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(list: List<ParkeerautomaatEntity>)
+    fun insertAll(List: List<ParkeerautomaatEntity>)
 
-    @Query("DELETE FROM parkeerautomaat")
+    @Query("DELETE FROM records")
     fun clear()
 }

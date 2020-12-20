@@ -50,7 +50,6 @@
                 android:text="@{Parkeerautomaat.fields.locatieomschrijving}"
                 android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/locatieomschrijving_label"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -161,6 +160,7 @@
                 android:text="favorite"
                 android:textColor="#ffffff"
                 app:icon="@android:drawable/btn_star"
+                app:iconTint="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/coppyButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
