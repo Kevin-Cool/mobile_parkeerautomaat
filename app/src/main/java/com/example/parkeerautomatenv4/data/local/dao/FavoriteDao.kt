@@ -12,6 +12,10 @@ interface FavoriteDao {
     @Query("select * from favorites where recordid=:id ")
     fun getFavorite(id: String): LiveData<FavoriteEntity>
 
+    @Transaction
+    @Query("select * from favorites")
+    fun getAllFavorite(): LiveData<List<FavoriteEntity>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFavorite(favoriteEntity: FavoriteEntity)
 

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFields
+import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEntity
 import com.example.parkeerautomatenv4.data.repos.RepositoryUtils
 import com.example.parkeerautomatenv4.databinding.FragmentFavoritesBinding
 import com.example.parkeerautomatenv4.utils.LoadingFragment
@@ -34,13 +35,26 @@ class ParkeerautomaatFavoritesFragment : Fragment() , ParkeerautomaatClickListen
         binding.adaptor = adapter
 
         viewModel.updateParkeerautomaten()
+        viewModel.updateFavorit()
         
         viewModel.parkeerautomaten.observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
                         showProgress(false)
-                        adapter.submitList(resource.data)
+                        if(viewModel.Favorit.value != null){
+                            val templist = ArrayList<ParkeerautomaatAndFields>()
+                            resource.data?.forEach { parkeerautomaatAndFields ->
+                                viewModel.Favorit.value!!.forEach { favorit ->
+                                    if(favorit.recordid == parkeerautomaatAndFields.records.recordid){
+                                        templist.add(parkeerautomaatAndFields)
+                                    }
+                                }
+                            }
+                            adapter.submitList(templist)
+                        }else{
+                            adapter.submitList(resource.data)
+                        }
                     }
                     Status.LOADING -> {
                         showProgress(true)

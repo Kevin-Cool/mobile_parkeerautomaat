@@ -35,6 +35,7 @@ class ParkeerautomaatLocalDataSource (private val parkeerautomaatDao: Parkeeraut
         parkeerautomaatfieldsDao.clear()
     }
     fun getFavorite(id: String) = favoriteDao.getFavorite(id)
+    fun getAllFavorite() = favoriteDao.getAllFavorite()
 
     fun addFavorite(id: String) {
         Thread {

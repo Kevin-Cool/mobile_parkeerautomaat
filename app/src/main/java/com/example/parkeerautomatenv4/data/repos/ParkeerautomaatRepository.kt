@@ -27,6 +27,8 @@ class ParkeerautomaatRepository(
 
     fun getFavorit(id: String) = parkeerautomaatLocalDataSource.getFavorite(id)
 
+    fun getAllFavorit() = parkeerautomaatLocalDataSource.getAllFavorite()
+
     fun addFavorit(id: String) = parkeerautomaatLocalDataSource.addFavorite(id)
 
     fun deleteFavorit(id: String) = parkeerautomaatLocalDataSource.deleteFavorite(id)
