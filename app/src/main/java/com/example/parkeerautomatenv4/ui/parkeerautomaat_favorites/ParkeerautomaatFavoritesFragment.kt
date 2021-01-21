@@ -18,6 +18,8 @@ import com.example.parkeerautomatenv4.utils.Status
 
 class ParkeerautomaatFavoritesFragment : Fragment() , ParkeerautomaatClickListener {
     private val loadingDialogFragment by lazy { LoadingFragment() }
+    private var ParkeerautomatenLoaded = false;
+    private var FavoritLoaded = false;
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -35,12 +37,30 @@ class ParkeerautomaatFavoritesFragment : Fragment() , ParkeerautomaatClickListen
 
         viewModel.updateParkeerautomaten()
         viewModel.updateFavorit()
-        
+
+        fun showFavorits(){
+            if(ParkeerautomatenLoaded && FavoritLoaded){
+                val tempList = ArrayList<ParkeerautomaatAndFields>()
+
+                viewModel.Parkeerautomaten.value?.data?.forEach { parkeerautomaatAndFields ->
+                    if(viewModel.Favorits.value != null){
+                        viewModel.Favorits.value!!.forEach { favorit ->
+                            if(favorit.recordid == parkeerautomaatAndFields.records?.recordid){
+                                tempList.add(parkeerautomaatAndFields)
+                            }
+                        }
+                    }
+                }
+                adapter.submitList(tempList)
+            }
+        }
         viewModel.Parkeerautomaten.observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
                         showProgress(false)
+                        ParkeerautomatenLoaded = true;
+                        showFavorits()
                     }
                     Status.LOADING -> {
                         showProgress(true)
@@ -51,25 +71,19 @@ class ParkeerautomaatFavoritesFragment : Fragment() , ParkeerautomaatClickListen
                 }
             }
         })
+
         viewModel.Favorits.observe(viewLifecycleOwner, Observer {
-            val tempList = ArrayList<ParkeerautomaatAndFields>()
-            viewModel.Parkeerautomaten.value?.data?.forEach { parkeerautomaatAndFields ->
-                if(viewModel.Favorits.value != null){
-                    viewModel.Favorits.value!!.forEach { favorit ->
-                        if(favorit.recordid == parkeerautomaatAndFields.records?.recordid){
-                            tempList.add(parkeerautomaatAndFields)
-                        }
-                    }
-                }
-            }
-                adapter.submitList(tempList)
+            FavoritLoaded = true;
+            showFavorits()
         })
         binding.zoekButton.setOnClickListener {
             ZoekenClicked()
         }
 
+
         return binding.root
     }
+
     private fun showProgress(b: Boolean) {
         if (b) {
             if (!loadingDialogFragment.isAdded) {

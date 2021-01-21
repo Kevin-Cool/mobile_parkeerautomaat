@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="20dp">
+        android:paddingBottom="0dp">
 
 
         <ImageButton
@@ -50,9 +50,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/parkeerautomaat_list_favorites"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="317dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_margin="10dp"
             app:setAdapter="@{adaptor}" />
 
     </LinearLayout>
