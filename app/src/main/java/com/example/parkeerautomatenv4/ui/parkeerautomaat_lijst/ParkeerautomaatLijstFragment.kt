@@ -9,13 +9,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFields
 import com.example.parkeerautomatenv4.data.repos.RepositoryUtils
 import com.example.parkeerautomatenv4.databinding.FragmentParkeerautomaatLijstBinding
-import com.example.parkeerautomatenv4.utils.LoadingFragment
 import com.example.parkeerautomatenv4.utils.ParkeerautomaatAdaptor
 import com.example.parkeerautomatenv4.utils.ParkeerautomaatClickListener
 
 class ParkeerautomaatLijstFragment : Fragment(), ParkeerautomaatClickListener {
-
-    private val loadingDialogFragment by lazy { LoadingFragment() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,17 +37,6 @@ class ParkeerautomaatLijstFragment : Fragment(), ParkeerautomaatClickListener {
         )
 
         return binding.root
-    }
-    private fun showProgress(b: Boolean) {
-        if (b) {
-            if (!loadingDialogFragment.isAdded) {
-                loadingDialogFragment.show(requireActivity().supportFragmentManager, "loader")
-            }
-        } else {
-            if (loadingDialogFragment.isAdded) {
-                loadingDialogFragment.dismissAllowingStateLoss()
-            }
-        }
     }
 
     override fun ParkeerautmaatClicked(parkeerautomaatAndFields: ParkeerautomaatAndFields) {

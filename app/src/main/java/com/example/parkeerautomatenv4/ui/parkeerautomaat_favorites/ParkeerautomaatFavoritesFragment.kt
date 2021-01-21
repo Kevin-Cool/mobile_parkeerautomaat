@@ -83,7 +83,7 @@ class ParkeerautomaatFavoritesFragment : Fragment(), ParkeerautomaatClickListene
             }
         )
         binding.zoekButton.setOnClickListener {
-            ZoekenClicked()
+            zoekenClicked()
         }
 
         return binding.root
@@ -106,7 +106,7 @@ class ParkeerautomaatFavoritesFragment : Fragment(), ParkeerautomaatClickListene
             findNavController().navigate(directions)
         }
     }
-    fun ZoekenClicked() {
+    fun zoekenClicked() {
         val directions = ParkeerautomaatFavoritesFragmentDirections.actionParkeerautomaatFavoritesFragmentToParkeerautomaatLijstFragment()
         findNavController().navigate(directions)
     }
