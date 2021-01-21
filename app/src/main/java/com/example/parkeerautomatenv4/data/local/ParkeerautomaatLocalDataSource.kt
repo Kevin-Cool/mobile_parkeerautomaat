@@ -1,6 +1,6 @@
 package com.example.parkeerautomatenv4.data.local
 
-import android.os.AsyncTask
+
 import com.example.parkeerautomatenv4.data.local.dao.FavoriteDao
 import com.example.parkeerautomatenv4.data.local.dao.ParkeerautomaatDao
 import com.example.parkeerautomatenv4.data.local.dao.ParkeerautomaatfieldsDao

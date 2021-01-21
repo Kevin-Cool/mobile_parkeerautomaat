@@ -1,6 +1,6 @@
 package com.example.parkeerautomatenv4.data.remote
 
-import com.bumptech.glide.load.engine.Resource
+
 import com.example.parkeerautomatenv4.domain.GetParkeerautomaatApiResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

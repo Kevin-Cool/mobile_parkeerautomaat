@@ -7,8 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFields
 import com.example.parkeerautomatenv4.data.local.entity.FavoriteEntity
 import com.example.parkeerautomatenv4.data.repos.ParkeerautomaatRepository
-import androidx.lifecycle.Observer
-import java.security.acl.Owner
 
 class DetailViewModel(private val repository: ParkeerautomaatRepository,val activity: FragmentActivity) : ViewModel() {
     private lateinit var _parkeerautomaat : LiveData<ParkeerautomaatAndFields>

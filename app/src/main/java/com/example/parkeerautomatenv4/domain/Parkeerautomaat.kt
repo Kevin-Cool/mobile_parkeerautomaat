@@ -5,7 +5,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatEntity
 import kotlinx.android.parcel.Parcelize
-import java.io.Serializable
 
 @Parcelize
 @Entity(tableName = "records")

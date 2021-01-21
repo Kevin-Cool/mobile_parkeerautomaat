@@ -1,7 +1,6 @@
 package com.example.parkeerautomatenv4.domain
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEntity
 import kotlinx.android.parcel.Parcelize

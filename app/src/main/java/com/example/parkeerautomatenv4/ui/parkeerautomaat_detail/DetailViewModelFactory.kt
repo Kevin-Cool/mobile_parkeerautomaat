@@ -4,7 +4,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.parkeerautomatenv4.data.repos.ParkeerautomaatRepository
-import com.example.parkeerautomatenv4.ui.parkeerautomaat_lijst.ParkeerautomaatLijstViewModel
 import java.lang.IllegalArgumentException
 
 class DetailViewModelFactory (val activity: FragmentActivity, private val repository: ParkeerautomaatRepository) : ViewModelProvider.Factory {

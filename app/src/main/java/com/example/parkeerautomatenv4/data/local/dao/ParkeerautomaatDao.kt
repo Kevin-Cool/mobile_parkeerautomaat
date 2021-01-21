@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFields
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatEntity
-import retrofit2.http.DELETE
 
 @Dao
 interface ParkeerautomaatDao {

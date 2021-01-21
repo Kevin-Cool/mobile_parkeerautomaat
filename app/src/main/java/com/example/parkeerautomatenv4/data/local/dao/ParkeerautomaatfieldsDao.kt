@@ -4,9 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.parkeerautomatenv4.data.local.entity.FavoriteEntity
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEntity
-import com.example.parkeerautomatenv4.domain.Parkeerautomaatfields
 
 @Dao
 interface ParkeerautomaatfieldsDao {
