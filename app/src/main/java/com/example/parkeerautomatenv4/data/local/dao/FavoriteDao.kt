@@ -19,5 +19,4 @@ interface FavoriteDao {
 
     @Query("DELETE from favorites where recordid=:id")
     fun deleteFavorite(id: String)
-
 }

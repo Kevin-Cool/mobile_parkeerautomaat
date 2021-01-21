@@ -13,20 +13,18 @@ import com.example.parkeerautomatenv4.utils.LoadingFragment
 import com.example.parkeerautomatenv4.utils.ParkeerautomaatAdaptor
 import com.example.parkeerautomatenv4.utils.ParkeerautomaatClickListener
 
-class ParkeerautomaatLijstFragment : Fragment() , ParkeerautomaatClickListener {
+class ParkeerautomaatLijstFragment : Fragment(), ParkeerautomaatClickListener {
 
     private val loadingDialogFragment by lazy { LoadingFragment() }
 
-
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View?{
-        val binding = FragmentParkeerautomaatLijstBinding.inflate(inflater,container,false)
-        val factory = ParkeerautomaatLijstViewModelFactory(requireNotNull(activity),RepositoryUtils.createParkeerautomaatRepository(requireContext()))
-        val viewModel = ViewModelProvider(this,factory).get(ParkeerautomaatLijstViewModel::class.java)
-
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding = FragmentParkeerautomaatLijstBinding.inflate(inflater, container, false)
+        val factory = ParkeerautomaatLijstViewModelFactory(requireNotNull(activity), RepositoryUtils.createParkeerautomaatRepository(requireContext()))
+        val viewModel = ViewModelProvider(this, factory).get(ParkeerautomaatLijstViewModel::class.java)
 
         binding.lifecycleOwner = viewLifecycleOwner
         val adapter = ParkeerautomaatAdaptor(this)
@@ -34,9 +32,12 @@ class ParkeerautomaatLijstFragment : Fragment() , ParkeerautomaatClickListener {
 
         viewModel.updateParkeerautomaten()
 
-        viewModel.parkeerautomaten.observe(viewLifecycleOwner, Observer {
-            it?.let { resource -> adapter.submitList(resource.data) }
-        })
+        viewModel.parkeerautomaten.observe(
+            viewLifecycleOwner,
+            Observer {
+                it?.let { resource -> adapter.submitList(resource.data) }
+            }
+        )
 
         return binding.root
     }
@@ -58,6 +59,4 @@ class ParkeerautomaatLijstFragment : Fragment() , ParkeerautomaatClickListener {
             findNavController().navigate(directions)
         }
     }
-
-
 }

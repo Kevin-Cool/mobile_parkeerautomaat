@@ -15,9 +15,9 @@ import java.lang.IllegalStateException
 class LoadingFragment : DialogFragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -31,8 +31,7 @@ class LoadingFragment : DialogFragment() {
             val ft = manager.beginTransaction()
             ft.add(this, tag)
             ft.commitAllowingStateLoss()
-        } catch (ignored: IllegalStateException){
-
+        } catch (ignored: IllegalStateException) {
         }
     }
 }

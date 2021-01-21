@@ -1,6 +1,5 @@
 package com.example.parkeerautomatenv4.data.local
 
-
 import com.example.parkeerautomatenv4.data.local.dao.FavoriteDao
 import com.example.parkeerautomatenv4.data.local.dao.ParkeerautomaatDao
 import com.example.parkeerautomatenv4.data.local.dao.ParkeerautomaatfieldsDao
@@ -10,27 +9,26 @@ import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEnt
 import com.example.parkeerautomatenv4.domain.Parkeerautomaat
 import java.lang.Exception
 
-class ParkeerautomaatLocalDataSource (private val parkeerautomaatDao: ParkeerautomaatDao, private val parkeerautomaatfieldsDao: ParkeerautomaatfieldsDao,private val favoriteDao: FavoriteDao ) {
+class ParkeerautomaatLocalDataSource(private val parkeerautomaatDao: ParkeerautomaatDao, private val parkeerautomaatfieldsDao: ParkeerautomaatfieldsDao, private val favoriteDao: FavoriteDao) {
 
     fun getParkeerautomaten() = parkeerautomaatDao.getAllParkeerautomaten()
 
     fun getParkeerautomaatById(id: String) = parkeerautomaatDao.getParkeerautomaatById(id)
 
-    fun saveParkeerautomaat(list: List<Parkeerautomaat>){
+    fun saveParkeerautomaat(list: List<Parkeerautomaat>) {
         try {
             clearLocalParkkerautomaten()
-        }catch (e: Exception){ }
+        } catch (e: Exception) { }
 
         val parkeerautomaatList = ArrayList<ParkeerautomaatEntity>()
         list.forEach { parkeerautomaat -> parkeerautomaatList.add(parkeerautomaat.toDatabaseModel()) }
         parkeerautomaatDao.insertAll(parkeerautomaatList)
 
         val fieldsList = ArrayList<ParkeerautomaatfieldsEntity>()
-        list.forEach { parkeerautomaat -> fieldsList.add(parkeerautomaat.fields.toDatabaseModel(parkeerautomaat.recordid))}
+        list.forEach { parkeerautomaat -> fieldsList.add(parkeerautomaat.fields.toDatabaseModel(parkeerautomaat.recordid)) }
         parkeerautomaatfieldsDao.insertAll(fieldsList)
-
     }
-    fun clearLocalParkkerautomaten(){
+    fun clearLocalParkkerautomaten() {
         parkeerautomaatDao.clear()
         parkeerautomaatfieldsDao.clear()
     }
@@ -48,5 +46,4 @@ class ParkeerautomaatLocalDataSource (private val parkeerautomaatDao: Parkeeraut
             favoriteDao.deleteFavorite(id)
         }.start()
     }
-
 }

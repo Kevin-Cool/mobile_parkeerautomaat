@@ -1,10 +1,8 @@
 package com.example.parkeerautomatenv4.data
 
-
 import android.util.Log
 import com.example.parkeerautomatenv4.utils.Resource
 import retrofit2.Response
-
 
 abstract class BaseDataSource {
 
@@ -22,6 +20,6 @@ abstract class BaseDataSource {
     }
     private fun <T> error(message: String): Resource<T> {
         Log.e("remoteDataSource", message)
-        return Resource.error(data = null, message = "Network call has failed for the following reason: ${message}")
+        return Resource.error(data = null, message = "Network call has failed for the following reason: $message")
     }
 }

@@ -14,5 +14,4 @@ interface ParkeerautomaatfieldsDao {
 
     @Query("DELETE FROM fields")
     fun clear()
-
 }

@@ -1,6 +1,5 @@
 package com.example.parkeerautomatenv4.data.remote
 
-
 import com.example.parkeerautomatenv4.domain.GetParkeerautomaatApiResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -17,12 +16,12 @@ private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 private val client = OkHttpClient.Builder().build()
 
 private val retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
-        .baseUrl(BASE_URL)
-        .client(client)
-        .build()
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .baseUrl(BASE_URL)
+    .client(client)
+    .build()
 
-interface GhentApiService{
+interface GhentApiService {
     @GET("api/records/1.0/search/?dataset=locaties-parkeerautomaten-gent&q=&rows=100&facet=parkeertariefzone&facet=bewonerszone&facet=betaalmodus&facet=status&facet=categorie&facet=locatieomschrijving")
     suspend fun getParkeerautomaten(): Response<GetParkeerautomaatApiResponse>
 }

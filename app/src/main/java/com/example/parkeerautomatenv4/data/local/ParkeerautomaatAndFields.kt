@@ -5,7 +5,7 @@ import androidx.room.Relation
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatEntity
 import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEntity
 
-class ParkeerautomaatAndFields (
+class ParkeerautomaatAndFields(
 
     @Embedded
     val records: ParkeerautomaatEntity?,

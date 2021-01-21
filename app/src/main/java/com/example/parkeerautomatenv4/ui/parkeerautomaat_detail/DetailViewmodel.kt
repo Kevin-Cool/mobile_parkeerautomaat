@@ -8,33 +8,31 @@ import com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFields
 import com.example.parkeerautomatenv4.data.local.entity.FavoriteEntity
 import com.example.parkeerautomatenv4.data.repos.ParkeerautomaatRepository
 
-class DetailViewModel(private val repository: ParkeerautomaatRepository,val activity: FragmentActivity) : ViewModel() {
-    private lateinit var _parkeerautomaat : LiveData<ParkeerautomaatAndFields>
-    val parkeerautomaat : LiveData<ParkeerautomaatAndFields>
-    get() = _parkeerautomaat
+class DetailViewModel(private val repository: ParkeerautomaatRepository, val activity: FragmentActivity) : ViewModel() {
+    private lateinit var _parkeerautomaat: LiveData<ParkeerautomaatAndFields>
+    val parkeerautomaat: LiveData<ParkeerautomaatAndFields>
+        get() = _parkeerautomaat
 
-    private lateinit var _isFavorit : LiveData<FavoriteEntity>
-    val isFavorit : LiveData<FavoriteEntity>
+    private lateinit var _isFavorit: LiveData<FavoriteEntity>
+    val isFavorit: LiveData<FavoriteEntity>
         get() = _isFavorit
 
-
-
-    fun updateFavorit(id: String){
+    fun updateFavorit(id: String) {
         _isFavorit = repository.getFavorit(id)
     }
 
-    fun updateParkeerautomaat(id: String){
+    fun updateParkeerautomaat(id: String) {
         _parkeerautomaat = repository.getParkeerautomaat(id)
     }
 
-    fun update(){
-        val id : String = _parkeerautomaat.value?.records?.recordid!!
-        if(isFavorit.value != null ){
+    fun update() {
+        val id: String = _parkeerautomaat.value?.records?.recordid!!
+        if (isFavorit.value != null) {
             repository.deleteFavorit(id)
-            Toast.makeText(activity , "Removed from favorite", Toast.LENGTH_LONG).show()
-        }else{
+            Toast.makeText(activity, "Removed from favorite", Toast.LENGTH_LONG).show()
+        } else {
             repository.addFavorit(id)
-            Toast.makeText(activity , "Added to favorite", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "Added to favorite", Toast.LENGTH_LONG).show()
         }
     }
 }

@@ -9,13 +9,12 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "records")
 data class Parkeerautomaat(
-        @ColumnInfo(name="recordid")
+    @ColumnInfo(name = "recordid")
     val recordid: String,
-        @ColumnInfo(name="fields")
+    @ColumnInfo(name = "fields")
     val fields: Parkeerautomaatfields
-): Parcelable{
-    fun toDatabaseModel(): ParkeerautomaatEntity{
+) : Parcelable {
+    fun toDatabaseModel(): ParkeerautomaatEntity {
         return ParkeerautomaatEntity(recordid)
     }
 }
-

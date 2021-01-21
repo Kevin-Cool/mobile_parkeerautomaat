@@ -10,11 +10,11 @@ interface ParkeerautomaatDao {
 
     @Transaction
     @Query("select * from records")
-    fun getAllParkeerautomaten() : LiveData<List<ParkeerautomaatAndFields>>
+    fun getAllParkeerautomaten(): LiveData<List<ParkeerautomaatAndFields>>
 
     @Transaction
     @Query("select * from records where recordid=:id")
-    fun getParkeerautomaatById(id: String) : LiveData<ParkeerautomaatAndFields>
+    fun getParkeerautomaatById(id: String): LiveData<ParkeerautomaatAndFields>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(List: List<ParkeerautomaatEntity>)

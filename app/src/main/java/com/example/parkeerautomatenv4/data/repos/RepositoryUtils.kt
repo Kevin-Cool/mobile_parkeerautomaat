@@ -8,14 +8,13 @@ import com.example.parkeerautomatenv4.data.remote.ParkeerautomaatRemoteDataSourc
 
 class RepositoryUtils {
 
-
-    companion object{
-        fun createParkeerautomaatRepository(context: Context): ParkeerautomaatRepository{
+    companion object {
+        fun createParkeerautomaatRepository(context: Context): ParkeerautomaatRepository {
             val database = AppDatabase.getDatabase(context)
-            var localDataSource = ParkeerautomaatLocalDataSource(database.parkeerautomaatDao(), database.parkeerautomaatfieldsDao(),database.favoriteDao())
+            var localDataSource = ParkeerautomaatLocalDataSource(database.parkeerautomaatDao(), database.parkeerautomaatfieldsDao(), database.favoriteDao())
             val remoteDataSource = ParkeerautomaatRemoteDataSource(GhentApi.apiService)
 
-            return ParkeerautomaatRepository(localDataSource,remoteDataSource)
+            return ParkeerautomaatRepository(localDataSource, remoteDataSource)
         }
     }
 }
