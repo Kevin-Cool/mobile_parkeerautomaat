@@ -24,11 +24,16 @@ class ParkeerautomaatAdaptor(private var parkeerautomaatClickListener: Parkeerau
 
 private class ParkingDiffCallback: DiffUtil.ItemCallback<ParkeerautomaatAndFields>(){
     override fun areItemsTheSame(oldItem: ParkeerautomaatAndFields, newItem: ParkeerautomaatAndFields): Boolean {
-        return  oldItem.records.recordid == newItem.records.recordid
+        return  oldItem.records?.recordid == newItem.records?.recordid
     }
 
     override fun areContentsTheSame(oldItem: ParkeerautomaatAndFields, newItem: ParkeerautomaatAndFields): Boolean {
-        return oldItem.records.equals(newItem.records)
+        val test = oldItem.records?.equals(newItem.records);
+        if(test != null){
+            return false
+        }else{
+            return test!!
+        }
     }
 
 }

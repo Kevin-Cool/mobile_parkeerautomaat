@@ -8,8 +8,8 @@ import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEnt
 class ParkeerautomaatAndFields (
 
     @Embedded
-    val records: ParkeerautomaatEntity,
+    val records: ParkeerautomaatEntity?,
 
     @Relation(parentColumn = "recordid", entityColumn = "parkeerautomaatfieldid")
-    val fields: ParkeerautomaatfieldsEntity
+    val fields: ParkeerautomaatfieldsEntity?
 )

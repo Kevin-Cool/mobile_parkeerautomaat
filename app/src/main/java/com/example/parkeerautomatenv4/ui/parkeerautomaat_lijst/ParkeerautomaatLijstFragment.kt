@@ -53,8 +53,10 @@ class ParkeerautomaatLijstFragment : Fragment() , ParkeerautomaatClickListener {
     }
 
     override fun ParkeerautmaatClicked(parkeerautomaatAndFields: ParkeerautomaatAndFields) {
-        val directions = ParkeerautomaatLijstFragmentDirections.actionParkeerautomaatLijstFragmentToDetailFragment(parkeerautomaatAndFields.records.recordid)
-        findNavController().navigate(directions)
+        val directions = parkeerautomaatAndFields.records?.recordid?.let { ParkeerautomaatLijstFragmentDirections.actionParkeerautomaatLijstFragmentToDetailFragment(it) }
+        if (directions != null) {
+            findNavController().navigate(directions)
+        }
     }
 
 

@@ -11,15 +11,20 @@ import com.example.parkeerautomatenv4.utils.Resource
 
 class ParkeerautomaatFavoritesViewModel(private val repository: ParkeerautomaatRepository,val activity: FragmentActivity) : ViewModel() {
     private lateinit var _parkeerautomaten : LiveData<Resource<List<ParkeerautomaatAndFields>>>
-    val parkeerautomaten : LiveData<Resource<List<ParkeerautomaatAndFields>>>
+    val Parkeerautomaten : LiveData<Resource<List<ParkeerautomaatAndFields>>>
         get() = _parkeerautomaten
 
-    private lateinit var _favorit : LiveData<List<FavoriteEntity>>
-    val Favorit : LiveData<List<FavoriteEntity>>
-        get() = _favorit
+    private lateinit var _favorits : LiveData<List<FavoriteEntity>>
+    val Favorits : LiveData<List<FavoriteEntity>>
+        get() = _favorits
 
     fun updateFavorit(){
-        _favorit = repository.getAllFavorit()
+        try {
+            _favorits = repository.getAllFavorit()
+        }catch (e: Exception){
+            Toast.makeText(activity , "it fucin crashed m8", Toast.LENGTH_LONG).show()
+        }
+
     }
 
     fun updateParkeerautomaten(){

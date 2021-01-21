@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.parkeerautomatenv4.data.local.ParkeerautomaatAndFields
-import com.example.parkeerautomatenv4.data.local.entity.ParkeerautomaatfieldsEntity
 import com.example.parkeerautomatenv4.data.repos.RepositoryUtils
 import com.example.parkeerautomatenv4.databinding.FragmentFavoritesBinding
 import com.example.parkeerautomatenv4.utils.LoadingFragment
@@ -37,24 +36,11 @@ class ParkeerautomaatFavoritesFragment : Fragment() , ParkeerautomaatClickListen
         viewModel.updateParkeerautomaten()
         viewModel.updateFavorit()
         
-        viewModel.parkeerautomaten.observe(viewLifecycleOwner, Observer {
+        viewModel.Parkeerautomaten.observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
                         showProgress(false)
-                        if(viewModel.Favorit.value != null){
-                            val templist = ArrayList<ParkeerautomaatAndFields>()
-                            resource.data?.forEach { parkeerautomaatAndFields ->
-                                viewModel.Favorit.value!!.forEach { favorit ->
-                                    if(favorit.recordid == parkeerautomaatAndFields.records.recordid){
-                                        templist.add(parkeerautomaatAndFields)
-                                    }
-                                }
-                            }
-                            adapter.submitList(templist)
-                        }else{
-                            adapter.submitList(resource.data)
-                        }
                     }
                     Status.LOADING -> {
                         showProgress(true)
@@ -64,6 +50,19 @@ class ParkeerautomaatFavoritesFragment : Fragment() , ParkeerautomaatClickListen
                     }
                 }
             }
+        })
+        viewModel.Favorits.observe(viewLifecycleOwner, Observer {
+            val tempList = ArrayList<ParkeerautomaatAndFields>()
+            viewModel.Parkeerautomaten.value?.data?.forEach { parkeerautomaatAndFields ->
+                if(viewModel.Favorits.value != null){
+                    viewModel.Favorits.value!!.forEach { favorit ->
+                        if(favorit.recordid == parkeerautomaatAndFields.records?.recordid){
+                            tempList.add(parkeerautomaatAndFields)
+                        }
+                    }
+                }
+            }
+                adapter.submitList(tempList)
         })
         binding.zoekButton.setOnClickListener {
             ZoekenClicked()
@@ -83,8 +82,10 @@ class ParkeerautomaatFavoritesFragment : Fragment() , ParkeerautomaatClickListen
         }
     }
     override fun ParkeerautmaatClicked(parkeerautomaatAndFields: ParkeerautomaatAndFields) {
-        val directions = ParkeerautomaatFavoritesFragmentDirections.actionParkeerautomaatFavoritesFragmentToDetailFragment(parkeerautomaatAndFields.records.recordid)
-        findNavController().navigate(directions)
+        val directions = parkeerautomaatAndFields.records?.recordid?.let { ParkeerautomaatFavoritesFragmentDirections.actionParkeerautomaatFavoritesFragmentToDetailFragment(it) }
+        if (directions != null) {
+            findNavController().navigate(directions)
+        }
     }
     fun ZoekenClicked() {
         val directions = ParkeerautomaatFavoritesFragmentDirections.actionParkeerautomaatFavoritesFragmentToParkeerautomaatLijstFragment()
